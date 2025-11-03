@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-brain"></i> AI Quiz Generator</h1>
+                <p>Transform any text into an interactive quiz instantly</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Input Section -->
+            <section id="input-section" class="section active">
+                <div class="card">
+                    <h2><i class="fas fa-file-text"></i> Create Your Quiz</h2>
+                    
+                    <div class="form-group">
+                        <label for="text-input">Describe your Quiz context here (minimum 200 characters):</label>
+                        <textarea 
+                            id="text-input" 
+                            placeholder="Paste your lecture notes, article, or any educational content here..."
+                            rows="8"
+                        ></textarea>
+                        <div class="char-counter">
+                            <span id="char-count">0</span> / 200 minimum
+                        </div>
+                    </div>
+
+                    <div class="settings-grid">
+                        <div class="form-group">
+                            <label for="num-questions">Number of Questions:</label>
+                            <select id="num-questions">
+                                <option value="3">3 Questions</option>
+                                <option value="5" selected>5 Questions</option>
+                                <option value="10">10 Questions</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="difficulty">Difficulty Level:</label>
+                            <select id="difficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="question-type">Question Type:</label>
+                            <select id="question-type">
+                                <option value="facts">Facts</option>
+                                <option value="concepts">Concepts</option>
+                                <option value="application">Application</option>
+                                <option value="mixed" selected>Mixed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="generate-btn" class="btn-primary" disabled>
+                        <i class="fas fa-magic"></i> Generate Quiz
+                    </button>
+                </div>
+            </section>
+
+            <!-- Loading Section -->
+            <section id="loading-section" class="section">
+                <div class="loading-container">
+                    <div class="spinner"></div>
+                    <h2 id="loading-title">Generating Your Quiz...</h2>
+                    <p id="loading-description">Our AI is analyzing your text and creating intelligent questions</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz-section" class="section">
+                <div class="quiz-header">
+                    <h2 id="quiz-title">Your AI Generated Quiz</h2>
+                    <div class="quiz-info">
+                        <span class="question-counter">
+                            Question <span id="current-question">1</span> of <span id="total-questions">5</span>
+                        </span>
+                        <div class="progress-bar">
+                            <div id="quiz-progress" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-content">
+                    <div class="question-card">
+                        <h3 id="question-text">Question will appear here</h3>
+                        <div id="options-container" class="options-container">
+                            <!-- Options will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="quiz-controls">
+                        <button id="prev-btn" class="btn-secondary" disabled>
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button id="next-btn" class="btn-primary" disabled>
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button id="submit-quiz-btn" class="btn-success" style="display: none;">
+                            <i class="fas fa-check"></i> Submit Quiz
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="section">
+                <div class="results-container">
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="score-percentage">85%</span>
+                        </div>
+                        <h2>Quiz Completed!</h2>
+                        <p id="score-details">You scored 4 out of 5 questions correctly</p>
+                    </div>
+
+                    <div class="results-breakdown">
+                        <h3>Question Breakdown</h3>
+                        <div id="results-list">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="restart-btn" class="btn-primary">
+                            <i class="fas fa-redo"></i> Create New Quiz
+                        </button>
+                        <button id="export-btn" class="btn-secondary">
+                            <i class="fas fa-download"></i> Export as PDF
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 AI Quiz Generator. Powered by advanced AI models.</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

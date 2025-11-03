@@ -1,0 +1,36 @@
+# 🎯 AI Quiz Generator - Minimal Setup
+
+## 📁 Project Files (Only Essential):
+
+### Core Files:
+- **`main.py`** - Complete backend application
+- **`requirements.txt`** - Python dependencies 
+- **`START_QUIZ_APP.bat`** - One-click launcher
+- **`static/`** - Frontend files
+  - `index.html` - Main interface
+  - `style.css` - Styling  
+  - `script.js` - JavaScript logic
+
+### Virtual Environment:
+- **`.venv/`** - Python virtual environment
+
+## 🚀 How to Use:
+
+### Method 1 (Recommended):
+Double-click **`START_QUIZ_APP.bat`**
+
+### Method 2:
+```bash
+python -m uvicorn main:app --host localhost --port 8000
+```
+Then open: http://localhost:8000
+
+## ✅ Features:
+- AI-powered question generation
+- Multiple difficulty levels
+- Detailed answer analysis
+- Quiz download functionality
+- Complete English interface
+- Responsive design
+
+**Clean, minimal, and perfectly working! 🎉**
