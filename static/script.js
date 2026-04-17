@@ -109,7 +109,11 @@ async function generateQuiz() {
         
         // Simulate loading time for better UX
         setTimeout(async () => {
-            const response = await fetch('/api/generate-quiz', {
+            const apiBase = window.location.origin === 'http://127.0.0.1:5500' || window.location.origin === 'http://localhost:5500' 
+                ? 'http://127.0.0.1:8000' 
+                : '';
+                
+            const response = await fetch(`${apiBase}/api/generate-quiz`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -272,7 +276,11 @@ async function submitQuiz() {
         
         // Simulate API call delay
         setTimeout(async () => {
-            const response = await fetch('/api/evaluate-quiz', {
+            const apiBase = window.location.origin === 'http://127.0.0.1:5500' || window.location.origin === 'http://localhost:5500' 
+                ? 'http://127.0.0.1:8000' 
+                : '';
+
+            const response = await fetch(`${apiBase}/api/evaluate-quiz`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

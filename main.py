@@ -352,7 +352,8 @@ def generate_options_simple(sentence: str, num_options: int = 4) -> List[str]:
 @app.get("/")
 async def read_root():
     """Serve the main page"""
-    return FileResponse("static/index.html")
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(url="/static/index.html")
 
 @app.post("/api/generate-quiz")
 async def create_quiz(request: QuizRequest):
